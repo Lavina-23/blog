@@ -12,6 +12,11 @@ class Post extends Model
     use HasFactory;
     protected $fillable = ['title', 'author', 'slug', 'body'];
 
+    public function author()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     // public static function find($slug): array
     // {
     //     // function callback
