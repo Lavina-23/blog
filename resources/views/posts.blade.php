@@ -5,8 +5,14 @@
             <a href="/posts/{{ $post['slug'] }}" class="hover:underline">
                 <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900">{{ $post['title'] }}</h2>
             </a>
-            <div class="text-gray-500 text-base">
-                <a class="hover:underline" href="/authors/{{ $post->author->id }}">{{ $post->author->name }}</a> |
+            <div class="text-gray-900 text-base">
+                By
+                <a class="hover:underline text-gray-500"
+                    href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
+                In
+                <a class="hover:underline text-gray-500"
+                    href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+                |
                 {{ $post['created_at']->diffForHumans() }}
             </div>
             <p class="my-4 font-light">
